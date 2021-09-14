@@ -4,8 +4,8 @@ mod pack_plaintext;
 mod pack_signed;
 mod unpack;
 
-pub mod did;
 pub mod algorithms;
+pub mod did;
 pub mod error;
 pub mod secrets;
 
