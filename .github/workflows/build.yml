@@ -19,7 +19,7 @@ jobs:
         run: rustup set profile minimal
 
       - name: Install Rust toolchain
-        run: rustup toolchain install stable-msvc
+        run: rustup toolchain install stable
 
       - name: Cache dependencies
         uses: actions/cache@v2
