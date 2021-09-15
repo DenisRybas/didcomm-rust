@@ -24,10 +24,15 @@ jobs:
       - name: Get timestamp for cache
         id: date
         run: echo ::set-output name=yearmo::$(date +%Y%m)
-      - uses: actions/cache@v1
+      - uses: actions/cache@v2
         with:
-          path: ~/.cargo/registry/index
-          key: cargo-registry-index-${{ hashFiles('**/Cargo.toml') }}-${{steps.date.outputs.yearmo}}
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.toml') }}-${{steps.date.outputs.yearmo}}
 
       - name: Cargo fmt
         run: cargo fmt --all -- --check
