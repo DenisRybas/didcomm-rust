@@ -27,7 +27,7 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: ~/.cargo/registry/index
-          key: cargo-registry-index-${{steps.date.outputs.yearmo}}
+          key: cargo-registry-index-${{ hashFiles('**/Cargo.toml') }}-${{steps.date.outputs.yearmo}}
 
       - name: Cargo fmt
         run: cargo fmt --all -- --check
