@@ -30,7 +30,7 @@ jobs:
           key: cargo-registry-index-${{steps.date.outputs.yearmo}}
 
       - name: Cargo fmt
-        run: cargo fmt --all --check
+        run: cargo fmt --all -- --check
 
       - name: Debug build
         run: cargo build --verbose
